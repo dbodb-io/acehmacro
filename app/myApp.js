@@ -29,7 +29,7 @@ app.controller("main", function($scope) {
           return 1;
         return 0;
       } 
-    steem.api.getAccountVotes('pantoen-aceh', function (err, resp) {
+    steem.api.getAccountVotes('acehmacro', function (err, resp) {
         if (err) console.log(err)
         resp.sort(compare);
         resp.reverse();
@@ -64,8 +64,8 @@ app.controller("main", function($scope) {
     });
   });
 
-  app.controller("pujangga", function($scope) {  
-    $scope.pujangga=[]; 
+  app.controller("photographers", function($scope) {  
+    $scope.photographers=[]; 
       function compare(a,b) {
           if (a.time < b.time)
             return -1;
@@ -73,7 +73,7 @@ app.controller("main", function($scope) {
             return 1;
           return 0;
         } 
-      steem.api.getAccountVotes('pantoen-aceh', function (err, resp) {
+      steem.api.getAccountVotes('acehmacro', function (err, resp) {
           if (err) console.log(err)
           resp.sort(compare);
           resp.reverse();
@@ -86,10 +86,10 @@ app.controller("main", function($scope) {
           })
           Promise.all(promises)
             .then(results => {
-              $scope.pujangga=results;
-              $scope.pujangga1=results.slice(0,4);
+              $scope.photographers=results;
+              $scope.photographers1=results.slice(0,4);
               $scope.getMoreData=function(){
-                $scope.pujangga1=results;
+                $scope.photographers1=results;
               }
               $scope.$apply(); 
             })
@@ -116,7 +116,7 @@ app.controller("main", function($scope) {
           return 1;
         return 0;
       }
-      steem.api.getAccountVotes('pantoen-aceh', function (err, result) {
+      steem.api.getAccountVotes('acehmacro', function (err, result) {
         const oneaccount=result.filter(x=>x.authorperm.startsWith($scope.author))
         oneaccount.sort(compare);
         oneaccount.reverse();
@@ -142,7 +142,3 @@ app.controller("main", function($scope) {
       })
     });
   
-
-
-
-
